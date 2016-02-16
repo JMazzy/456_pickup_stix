@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-
   def signed_in_user?
     !!current_user
   end
@@ -24,9 +23,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :is_current_user?
 
-
-
-
   protected
   def sign_in(user)
     session[:auth_token] = user.auth_token
@@ -34,12 +30,10 @@ class ApplicationController < ActionController::Base
     @current_user == user && session[:auth_token] == user.auth_token
   end
 
-
   def sign_out
     @current_user = session[:auth_token] = nil
     @current_user.nil? && session[:auth_token].nil?
   end
-
 
   def require_login
     unless signed_in_user?
@@ -49,7 +43,6 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
-
 
   def require_logout
     if signed_in_user?
