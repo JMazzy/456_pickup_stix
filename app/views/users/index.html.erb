@@ -1,4 +1,4 @@
-<%= @users.each do |user| %>
+<% @users.each do |user| %>
   <%= link_to user.name, user_path(user) %>
-  <%= "Playlist Count: #{user.playlist_count}"
+  <%= "Playlist Count: #{user.playlist_count}" %>
 <% end %>
